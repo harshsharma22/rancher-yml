@@ -1,0 +1,34 @@
+---
+  livenessProbe:
+    enabled: true
+  readinessProbe:
+     enabled: true
+  resources:
+    limits: 
+      cpu: 700m
+      memory: "2Gi"
+  defaultImage: false
+  image: 
+    repository: "bitnami/mongodb"
+    tag: "3.6"
+  volumePermissions: 
+    image: 
+      repository: "bitnami/mongodb"
+      tag: "3.6"
+  metrics: 
+    image: 
+      repository: "ranchercharts/bitnami-mongodb-exporter"
+      tag: "0.8.0-debian-9-r4"
+    enabled: false
+    serviceMonitor: 
+      enabled: false
+  usePassword: true
+  mongodbRootPassword: "heloldfsfdf"
+  replicaSet: 
+    enabled: true
+    name: "rs0"
+    key: ""
+  persistence: 
+    enabled: true
+    size: "100Gi"
+    storageClass: "local-path"
